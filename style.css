@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+}
+
+footer,
+p {
+  margin: 1em 0;
+}
+
+#app {
+  width: 100vw;
+  height: 95vh;
+}
