@@ -6,14 +6,20 @@ import style from './style';
 // Some places to position the map on startup
 const places = [
   [2.2935339108148383, 48.85815954565956], // Paris
-
   [-6.147688520866393, 53.36793308040547], // Dublin
-
   [151.21326695694927, -33.851985478211034], // Sydney
   [139.78270173499422, 35.64721657992466], // Tokyo
 ];
 
-const addGeojson = (map, geo) => {
+const updateElement = (element, obj) => {
+  let str = '';
+  for (let [key, value] of Object.entries(obj)) {
+    str += `<small><b>${key}</b>: ${value}</small>`;
+  }
+  element.innerHTML = str;
+};
+
+const addGeojson = (map, geo, info) => {
   const layerID = 'layer_' + Math.random();
   const sourceID = 'source_' + Math.random();
 
@@ -59,7 +65,7 @@ const addGeojson = (map, geo) => {
 
     hoveredStateId = e.features[0].id;
 
-    console.log(e.features[0].properties);
+    updateElement(info, e.features[0].properties);
 
     map.setFeatureState(
       { source: sourceID, id: hoveredStateId },
@@ -88,6 +94,7 @@ const preventDefaults = (e) => {
 
 const handleDrop = (map) => async (e) => {
   let dt = e.dataTransfer;
+  const info = document.querySelector('.info');
 
   for (const item of dt.items) {
     // If dropped items aren't files, reject them
@@ -97,7 +104,7 @@ const handleDrop = (map) => async (e) => {
       let j = JSON.parse(t);
 
       try {
-        addGeojson(map, j);
+        addGeojson(map, j, info);
       } catch (error) {
         alert(`
         ${error.message}

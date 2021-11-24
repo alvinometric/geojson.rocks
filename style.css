@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..900&display=swap');
+
 body {
   margin: 0;
   font-family: 'Work Sans', sans-serif;
@@ -6,6 +8,24 @@ body {
 footer,
 p {
   margin: 1em 0 0 0;
+}
+
+.info {
+  position: fixed;
+  top: 0;
+  right: 1em;
+  z-index: 1000;
+  max-width: 200px;
+  background: white;
+  padding: 1.5rem;
+}
+
+small {
+  display: block;
+}
+
+footer p {
+  padding: 0 1rem;
 }
 
 #app {
