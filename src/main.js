@@ -2,6 +2,7 @@ import '../style.css';
 import bbox from '@turf/bbox';
 import maplibregl from 'maplibre-gl';
 import style from './style';
+import * as topojson from 'topojson-client';
 
 // Some places to position the map on startup
 const places = [
@@ -93,18 +94,23 @@ const preventDefaults = (e) => {
 };
 
 const handleDrop = (map) => async (e) => {
-  let dt = e.dataTransfer;
+  const dt = e.dataTransfer;
   const info = document.querySelector('.info');
 
   for (const item of dt.items) {
     // If dropped items aren't files, reject them
     if (item.kind === 'file') {
-      var file = item.getAsFile();
+      const file = item.getAsFile();
       let t = await file.text();
-      let j = JSON.parse(t);
+      let geojson = JSON.parse(t);
+
+      if (geojson.type === 'Topology') {
+        const k = Object.keys(geojson.objects)[0];
+        geojson = topojson.feature(geojson, k);
+      }
 
       try {
-        addGeojson(map, j, info);
+        addGeojson(map, geojson, info);
       } catch (error) {
         alert(`
         ${error.message}
@@ -128,6 +134,7 @@ const start = () => {
 
   const nav = new maplibregl.NavigationControl();
   map.addControl(nav, 'top-left');
+
   ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
     document.body.addEventListener(eventName, preventDefaults, false);
   });

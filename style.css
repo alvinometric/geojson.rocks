@@ -5,9 +5,9 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 
-footer,
-p {
-  margin: 1em 0 0 0;
+footer {
+  height: 3vh;
+  padding: 0 1rem;
 }
 
 .info {
@@ -24,11 +24,7 @@ small {
   display: block;
 }
 
-footer p {
-  padding: 0 1rem;
-}
-
 #app {
   width: 100vw;
-  height: 95vh;
+  height: 97vh;
 }
