@@ -1,4 +1,4 @@
-# geojson.rocks 🪨
+# 🪨 Geojson.rocks
 
 I always use GeoJSON.io to inspect my GeoJSONs and make sure the data is right.
 
@@ -9,6 +9,6 @@ The problem is: It's really really slow, so I made my own replacement.
 - Gives you an error message if it doesn't import
 - Much, much faster
 
-I can't believe I managed to make this so quickly. Credit goes to MapLibre and ViteJs.
+I can't believe I managed to make this so quickly. Credit goes to [MapLibre](https://maplibre.org) and [ViteJs](https://vitejs.dev).
 
 If you need to reproject, run `-proj "EPSG:4326"` in the Mapshaper console.
