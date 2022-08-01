@@ -1,4 +1,10 @@
-# 🪨 Geojson.rocks
+# 🪨 Geojson.rocks 
+
+<p align="center">
+  <a href="http://www.openstreetmap.org/"><img src="https://img.shields.io/badge/source-OSM-2ecc71.svg" alt="maps source" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/alvinometric/geojson.rocks.svg" alt="software license" /></a>
+  <a href="https://opendatacommons.org/licenses/odbl/1.0/"><img src="https://img.shields.io/badge/license-ODbL-2980b9.svg" alt="data license" /></a>
+</p>
 
 I always use GeoJSON.io to inspect my GeoJSONs and make sure the data is right.
 
