@@ -2,17 +2,17 @@
   "name": "geojson.rocks",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
-    "vite": "^2.6.14"
+    "vite": "^3.0.4"
   },
   "dependencies": {
     "@turf/bbox": "^6.5.0",
-    "dropzone": "^6.0.0-beta.1",
-    "maplibre-gl": "^1.15.2",
+    "dropzone": "^6.0.0-beta.2",
+    "maplibre-gl": "^2.1.9",
     "topojson-client": "^3.1.0"
   }
 }
