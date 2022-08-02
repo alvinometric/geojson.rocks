@@ -132,14 +132,19 @@ const start = () => {
     zoom: 11, // starting zoom
   });
 
-  const nav = new maplibregl.NavigationControl();
-  map.addControl(nav, 'top-left');
+  map.on('load', () => {
+    console.log('✅ Map loaded');
+    const nav = new maplibregl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
-  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
-    document.body.addEventListener(eventName, preventDefaults, false);
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+      document.body.addEventListener(eventName, preventDefaults, false);
+    });
+
+    map.resize();
+
+    document.body.addEventListener('drop', handleDrop(map), false);
   });
-
-  document.body.addEventListener('drop', handleDrop(map), false);
 };
 
 start();
