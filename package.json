@@ -7,12 +7,12 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "vite": "^3.0.4"
+    "vite": "^4.0.4"
   },
   "dependencies": {
     "@turf/bbox": "^6.5.0",
     "dropzone": "^6.0.0-beta.2",
-    "maplibre-gl": "^2.1.9",
+    "maplibre-gl": "^2.4.0",
     "topojson-client": "^3.1.0"
   }
 }

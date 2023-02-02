@@ -10,6 +10,14 @@ footer {
   padding: 0 1rem;
 }
 
+h1 {
+  font-size: 1rem;
+}
+
+h1 span {
+  text-decoration: underline;
+}
+
 .info {
   position: fixed;
   top: 0;
